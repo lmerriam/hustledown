@@ -3,15 +3,15 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
 
 	actions: {
-		newSession: function() {
-			let newSession = this.get("store").createRecord('session', {
+		newWorkout: function() {
+			let newWorkout = this.get("store").createRecord('workout', {
 				timestamp: Date.now(),
 				date: moment().format("MMMM DD")
 			});
-			newSession.save();
+			newWorkout.save();
 		},
-		removeSession: function(session) {
-			session.destroyRecord();
+		removeWorkout: function(workout) {
+			workout.destroyRecord();
 		},
 		changeDate: function () {
 		  console.log("blah!!!");

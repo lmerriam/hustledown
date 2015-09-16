@@ -1,2 +1,2 @@
-form class="add-exercise" submit="'newSuperset' session"
+form class="add-exercise" submit="'newSuperset' this.workout"
 	=input type="text" value=exerciseName placeholder="Add exercise"
