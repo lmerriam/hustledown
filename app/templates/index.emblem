@@ -1,0 +1,35 @@
+.row
+	.routine-column.quarter
+		h1 Routines
+		//- ul
+		//- 	each model.owners as |owner|
+		//- 		li #{owner.name}
+		//- 	li
+		//- 		form submit="newOwner"
+		//- 			=input type="text" value=name
+		//- 			=input type="submit" value="+" class="new-owner-button" 
+
+
+
+	.session-column.half
+
+		each model.sessions as |session|
+			.session-wrap
+				.session
+					a{action "removeSession" session} href="#" class="remove-session-button" ×
+					= pikaday-input value=session.date format="MMMM D" class="session-date" onPikadaySelect="changeData"
+					each session.supersets as |superset|
+						= super-set sets=superset.sets exercise=superset.exercise superset=superset
+				= add-superset session=session
+					//- ul
+					//- 	each session.sets as |set|
+					//- 		li.set #{set.reps} × #{set.weight} lb
+					//- 	li
+					//- 		form submit="'newSet' session"
+					//- 			=input type="hidden" value=exercise
+					//- 			=input type="text" value=text id="new-goal" autofocus="autofocus" placeholder="Add a new goal"
+					//- 			=input type="submit" value="+" class="new-goal-button"
+
+	.new-session-column.quarter
+		form submit="newSession"
+			=input type="submit" value="Log workout" class="new-session-button"

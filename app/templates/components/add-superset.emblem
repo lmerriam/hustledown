@@ -1,0 +1,2 @@
+form class="add-exercise" submit="'newSuperset' session"
+	=input type="text" value=exerciseName placeholder="Add exercise"

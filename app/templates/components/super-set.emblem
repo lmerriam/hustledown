@@ -1,0 +1,20 @@
+.superset
+	h4
+		| #{exercise.name}
+		a.remove-superset{action 'removeSuperset' superset} href="#" &nbsp;×
+	ul
+		each sets as |set|
+			li.set
+				span{action "editSet" set} #{set.reps} × #{set.weight} lb
+				a.remove-set{action 'removeSet' set} href="#" &nbsp;×
+		li.set
+			if addingSet
+				form submit="'saveSet' superset" class="add-set-form"
+					=input type="text" id="reps" value=reps placeholder="Reps"
+					span &nbsp;× 
+					=input type="text" id="weight" value=weight placeholder="Weight (lbs)"
+					=input type="submit" value="Add"
+					a{action "cancelAdd" on="click"} href="#" Done
+			else
+				a{action "addSet" on="click"} href="#" class="add-set" + ADD SET
+

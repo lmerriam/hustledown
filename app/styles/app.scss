@@ -1,0 +1,180 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+$primary: #0071DC;
+
+::selection {
+  background: $primary; 
+  color: white;
+}
+body {
+	font-family: "Roboto", sans-serif;
+	line-height: 1.5rem;
+	padding: 4rem;
+	height: 100%;
+	max-width: 1600px;
+	margin: 0 auto;
+	color: #585858;
+	font-weight: 300;
+	font-size: 1.1rem;
+	line-height: 1.8rem;
+}
+h1 {
+	color: $primary;
+	font-size: 2rem;
+	margin-bottom: .75rem;
+}
+h4 {
+	font-weight: 400;
+}
+input {
+	border-color: lightgrey;
+}
+.new-session-column, .routine-column {
+	position: fixed;
+}
+.new-session-button {
+	position: fixed;
+	bottom: 4rem;
+	right: 4rem;
+}
+.superset {
+	margin-bottom: .35rem;
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+	h4 {
+		.remove-superset {
+			font-size: 1.5rem;
+			color: lightgrey;
+			visibility: hidden;
+		}
+		&:hover {
+			.remove-superset {
+				visibility: visible;
+				&:hover {
+					color: black;
+				}
+			}
+		}
+	}
+	.add-set {
+		font-size: .8em;
+		font-weight: 400;
+		visibility: hidden;
+	}
+	&:hover {
+		.add-set{
+			visibility: visible;
+		}
+	}
+}
+.set{
+	input[type="text"] {
+		display: inline-block;
+		max-width: 100px;
+	}
+	.remove-set {
+		font-size: 1.5rem;
+		color: lightgrey;
+		visibility: hidden;
+	}
+	&:hover {
+		.remove-set {
+			visibility: visible;
+			&:hover {
+				color: black;
+			}
+		}
+	}
+}
+.session-wrap {
+	margin-bottom: 2rem;
+}
+.session {
+	border: 1px solid lightgrey;
+  border-radius: 5px;
+  padding: 10px 20px 10px 20px;
+  position: relative;
+  border-bottom: none;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.add-exercise input {
+	border-top-right-radius: 0;
+	border-top-left-radius: 0;
+	padding: 10px 20px;
+}
+.remove-session-button {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	line-height: 1rem;
+	font-size: 2rem;
+	opacity: .5;
+	color: lightgrey;
+	&:hover {
+		opacity: 1;
+		color: black;
+	}
+}
+.session-date {
+	color: $primary;
+	padding: 0;
+	border: none;
+	font-size: 2rem;
+	max-width: 300px;
+	&:hover {
+		text-decoration: underline;
+		cursor: pointer;
+	}
+}
+.add-set-form {
+	margin: 5px 0 20px 0;
+}
