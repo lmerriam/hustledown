@@ -1,34 +1,17 @@
 .row
+
 	.routine-column.quarter
 		h1 Routines
-		//- ul
-		//- 	each model.owners as |owner|
-		//- 		li #{owner.name}
-		//- 	li
-		//- 		form submit="newOwner"
-		//- 			=input type="text" value=name
-		//- 			=input type="submit" value="+" class="new-owner-button" 
-
-
 
 	.workout-column.half
-
 		each model.workouts as |workout|
 			.workout-wrap
 				.workout
 					a{action "removeWorkout" workout} href="#" class="remove-workout-button" ×
 					= pikaday-input value=workout.date format="MMMM D" class="workout-date"
 					each workout.supersets as |superset|
-						= super-set sets=superset.sets exercise=superset.exercise superset=superset
-				= add-superset workout=workout
-					//- ul
-					//- 	each workout.sets as |set|
-					//- 		li.set #{set.reps} × #{set.weight} lb
-					//- 	li
-					//- 		form submit="'newSet' workout"
-					//- 			=input type="hidden" value=exercise
-					//- 			=input type="text" value=text id="new-goal" autofocus="autofocus" placeholder="Add a new goal"
-					//- 			=input type="submit" value="+" class="new-goal-button"
+						= super-set sets=superset.sets exercise=superset.exercise superset=superset activeSuperset=activeSuperset addSet="addSet" saveSet="saveSet" updateSet="updateSet" removeSet="removeSet" removeSuperset="removeSuperset" cancelAdd="cancelAdd"
+				= add-superset workout=workout action="newSuperset"
 
 	.new-workout-column.quarter
 		form submit="newWorkout"

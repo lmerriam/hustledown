@@ -1,0 +1,6 @@
+form submit="'saveSet' superset" class="add-set-form"
+	=input type="text" id="reps" value=reps placeholder="Reps"
+	span &nbsp;× 
+	=input type="text" id="weight" value=weight placeholder="Weight (lbs)"
+	=input type="submit" value="Add"
+	a{action "cancelAdd" on="click"} href="#" Done

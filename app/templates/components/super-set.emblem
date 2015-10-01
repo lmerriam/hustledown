@@ -5,16 +5,14 @@
 	ul
 		each sets as |set|
 			li.set
-				span{action "editSet" set} #{set.reps} × #{set.weight} lb
+				=input value=set.reps key-up=(action "updateSet" set)
+				|&nbsp;×&nbsp;
+				=input value=set.weight key-up=(action "updateSet" set)
+				|&nbsp;lb
 				a.remove-set{action 'removeSet' set} href="#" &nbsp;×
 		li.set
-			if addingSet
-				form submit="'saveSet' superset" class="add-set-form"
-					=input type="text" id="reps" value=reps placeholder="Reps"
-					span &nbsp;× 
-					=input type="text" id="weight" value=weight placeholder="Weight (lbs)"
-					=input type="submit" value="Add"
-					a{action "cancelAdd" on="click"} href="#" Done
+			if active
+				= add-set superset=superset addSet="addSet" saveSet="saveSet" cancelAdd="cancelAdd"
 			else
 				a{action "addSet" on="click"} href="#" class="add-set" + ADD SET
 

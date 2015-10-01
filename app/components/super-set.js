@@ -1,32 +1,33 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	store: Ember.inject.service(),
-	addingSet: false,
+	// store: Ember.inject.service(),
+	// beFocused: function() {
+	// 	console.log("fired becomeFocused");
+ //    this.$('.add-exercise-input').focus();
+ //  }.on('didInsertElement'),
+	active: Ember.computed(function(){
+		return this.get('superset') === this.get('activeSuperset')
+	}).property('activeSuperset'),
 	actions: {
 		addSet: function() {
-			this.set("addingSet", true);
-			$("#reps").focus();
+			let supersetID = this.get('superset');
+			this.sendAction('addSet', supersetID);
 		},
 		cancelAdd: function() {
-			this.set("addingSet", false);
+			this.sendAction('cancelAdd');
 		},
-		saveSet: function(superset) {
-			let newSet = this.get("store").createRecord('set', {
-				reps: this.reps,
-				weight: this.weight
-			});
-			superset.get('sets').addObject(newSet);
-			newSet.save().then(function(){
-				return superset.save();
-			});
-			$("#reps").select();
+		saveSet: function(superset, reps, weight) {
+			this.sendAction('saveSet', superset, reps, weight);
+		},
+		updateSet: function(set) {
+			this.sendAction("updateSet", set);
 		},
 		removeSet: function(set) {
-			set.destroyRecord();
+			this.sendAction('removeSet', set);
 		},
 		removeSuperset: function(superset) {
-			superset.destroyRecord();
+			this.sendAction('removeSuperset', superset);
 		}
 	}
 });
