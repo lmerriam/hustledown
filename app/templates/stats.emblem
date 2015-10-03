@@ -1,0 +1,7 @@
+h1 Stats route
+
+//- a{action "updateData"} PUSH
+
+//- =graphData
+
+= c3-chart data=graphData
