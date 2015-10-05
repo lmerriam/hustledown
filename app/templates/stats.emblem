@@ -1,7 +1,11 @@
-h1 Stats route
+h1
+	if selectedExercise
+		= selectedExercise.name
+	else
+		| Loading exercises...
 
-//- a{action "updateData"} PUSH
+= ember-selectize content=model.exercises optionValuePath="content.id" optionLabelPath="content.name" selection=selectedExercise
 
-//- =graphData
+= c3-chart data=repData padding=paddingOptions zoom=zoomOptions axis=axisOptions
 
-= c3-chart data=graphData
+= axisOptions.x.categories
