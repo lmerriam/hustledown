@@ -9,10 +9,6 @@ export default Ember.Route.extend({
 			supersets: this.store.findAll('superset'),
 			sets: this.store.findAll('set')
 		}
-	},
-
-	afterModel: function(model) {
-		
 	}
 
 });

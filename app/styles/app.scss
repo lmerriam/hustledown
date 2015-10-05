@@ -76,6 +76,11 @@ h4 {
 input {
 	border-color: lightgrey;
 }
+.selectize-input {
+	input {
+		height: auto;
+	}
+}
 .new-workout-column, .routine-column {
 	position: fixed;
 }
