@@ -14,8 +14,7 @@ export default Ember.Controller.extend({
 				show: true
 			},
 			x: {
-	      type: 'category',
-	      categories: this.get('data.dates')
+	      type: 'category'
 	    }
 	  }
 	}.property('data'),
@@ -40,6 +39,7 @@ export default Ember.Controller.extend({
 
 		reps.unshift('Reps');
 		weight.unshift('Weight');
+		dates.unshift('Dates');
 
 		return {
 			reps: reps,
@@ -51,7 +51,8 @@ export default Ember.Controller.extend({
 
 	repData: function(){
 		return {
-			columns: [this.get('data.reps'), this.get('data.weight')],
+			x: 'Dates',
+			columns: [this.get('data.dates'), this.get('data.reps'), this.get('data.weight')],
 			axes: {
         Reps: 'y',
         Weight: 'y2'

@@ -1,12 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	// TODO: scroll screen to center on new set
 	// TODO: make new supersets with existing articles autofill (maybe return latestset to earlier)
 	latestSet: Ember.computed(function(){
 		return {
 			reps: this.get('activeSuperset.exercise.supersets.lastObject.sets.lastObject.reps'),
 			weight: this.get('activeSuperset.exercise.supersets.lastObject.sets.lastObject.weight')
-		}
+		};
 	}).property('activeSuperset'),
 
   initAddSet: function() {
@@ -23,7 +24,6 @@ export default Ember.Component.extend({
 			var reps = this.reps;
 			var weight = this.weight;
 			this.sendAction("saveSet", superset, reps, weight);
-			$('#reps').focus();
 		},
 
 		cancelAdd: function() {

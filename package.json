@@ -44,7 +44,7 @@
     "ember-export-application-global": "^1.0.3",
     "ember-highcharts": "0.2.0",
     "ember-moment": "3.6.4",
-    "ember-pikaday": "0.12.0",
+    "ember-pikaday": "0.13.0",
     "emberfire": "1.5.0"
   }
 }
