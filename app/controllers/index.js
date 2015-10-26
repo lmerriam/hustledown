@@ -19,10 +19,12 @@ export default Ember.Controller.extend({
 		},
 
 		newSuperset: function(workout, exerciseName) {
+
 			let newSuperset = this.get("store").createRecord('superset', {
 				timestamp: Date.now()
 			});
 
+			// TODO: make exercise names case insensitive
 			let existingExercise = this.model.exercises.findBy('name', exerciseName);
 
 			if (typeof existingExercise !== "undefined") {

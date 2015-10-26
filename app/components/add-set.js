@@ -1,7 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-
+	// TODO: make new supersets with existing articles autofill (maybe return latestset to earlier)
 	latestSet: Ember.computed(function(){
 		return {
 			reps: this.get('activeSuperset.exercise.supersets.lastObject.sets.lastObject.reps'),
