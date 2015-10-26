@@ -4,8 +4,9 @@ export default Ember.Controller.extend({
 	activeSuperset: null,
 	actions: {
 
-		selectDate: function() {
-			console.log('dated');
+		onSelectDate: function(workout, date) {
+			workout.set('date', moment(date).format("MMMM DD"));
+			workout.save();
 		},
 
 		newWorkout: function() {
@@ -55,6 +56,7 @@ export default Ember.Controller.extend({
 			this.set('activeSuperset', supersetID);
 			$("#reps").focus();
 		},
+		
 		saveSet: function(superset, reps, weight) {
 			let newSet = this.get("store").createRecord('set', {
 				reps: reps,
@@ -66,6 +68,7 @@ export default Ember.Controller.extend({
 			});
 			$('#reps').select();
 		},
+
 		updateSet: function(set) {
 			let reps=set.get('reps');
 			let weight=set.get('weight');
@@ -73,14 +76,17 @@ export default Ember.Controller.extend({
 				set.set('reps', reps);
 				set.set('weight', weight);
 				set.save();
-			})
+			});
 		},
+
 		cancelAdd: function() {
 			this.set('activeSuperset', null);
 		},
+
 		removeSet: function(set) {
 			set.destroyRecord();
 		},
+
 		removeSuperset: function(superset) {
 			superset.destroyRecord();
 		}

@@ -8,7 +8,7 @@
 			.workout-wrap
 				.workout
 					a{action "removeWorkout" workout} href="#" class="remove-workout-button" ×
-					= pikaday-input value=workout.date format="MMMM D" class="workout-date" onSelect="selectDate"
+					= pikaday-input value=workout.date format="MMMM D" class="workout-date" onSelectDate="onSelectDate" workout=workout
 					each workout.supersets as |superset|
 						= super-set sets=superset.sets exercise=superset.exercise superset=superset activeSuperset=activeSuperset addSet="addSet" saveSet="saveSet" updateSet="updateSet" removeSet="removeSet" removeSuperset="removeSuperset" cancelAdd="cancelAdd"
 				= add-superset workout=workout action="newSuperset"

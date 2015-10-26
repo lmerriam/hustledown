@@ -15,7 +15,7 @@ export default Ember.Component.extend({
   	let weight = this.get('latestSet.weight');
     this.set('reps', reps);
     this.set('weight', weight);
-    this.$('#reps').select();
+    $('#reps').select();
   }.on('didInsertElement'),
 
 	actions: {
