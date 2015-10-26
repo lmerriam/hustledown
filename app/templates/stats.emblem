@@ -2,10 +2,11 @@ h1
 	if selectedExercise
 		= selectedExercise.name
 	else
-		| Loading exercises...
+		| Loading...
 
 = ember-selectize content=model.exercises optionValuePath="content.id" optionLabelPath="content.name" selection=selectedExercise
 
 = c3-chart data=repData padding=paddingOptions zoom=zoomOptions axis=axisOptions
 
 = axisOptions.x.categories
+= axisOptions.x.type

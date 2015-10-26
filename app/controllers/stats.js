@@ -8,13 +8,13 @@ export default Ember.Controller.extend({
 	zoomOptions: {
 		enabled: true
 	},
-	axisOptions:function() {
+	axisOptions: function() {
 		return {
 			y2: {
 				show: true
 			},
 			x: {
-	      // type: 'category',
+	      type: 'category',
 	      categories: this.get('data.dates')
 	    }
 	  }

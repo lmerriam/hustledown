@@ -22,12 +22,22 @@ export default Ember.Controller.extend({
 			let newSuperset = this.get("store").createRecord('superset', {
 				timestamp: Date.now()
 			});
-			let newExercise = this.get("store").createRecord('exercise', {
-				name: exerciseName,
-				supersets: [newSuperset]
-			});
+
+			let existingExercise = this.model.exercises.findBy('name', exerciseName);
+
+			if (typeof existingExercise !== "undefined") {
+				existingExercise.get('supersets').addObject(newSuperset);
+				existingExercise.save();
+			}
+			else {
+				let newExercise = this.get("store").createRecord('exercise', {
+					name: exerciseName,
+					supersets: [newSuperset]
+				});
+				newExercise.save();
+			}
+
 			workout.get('supersets').addObject(newSuperset);
-			newExercise.save();
 			newSuperset.save().then(function(){
 				return workout.save();
 			});

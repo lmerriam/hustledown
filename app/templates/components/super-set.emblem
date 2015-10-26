@@ -12,7 +12,7 @@
 				a.remove-set{action 'removeSet' set} href="#" &nbsp;×
 		li.set
 			if active
-				= add-set superset=superset addSet="addSet" saveSet="saveSet" cancelAdd="cancelAdd"
+				= add-set superset=superset addSet="addSet" saveSet="saveSet" cancelAdd="cancelAdd" activeSuperset=activeSuperset
 			else
 				a{action "addSet" on="click"} href="#" class="add-set" + ADD SET
 
