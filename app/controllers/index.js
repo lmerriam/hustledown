@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Controller.extend({
+	// TODO: when removing a record, remove all related records (ie deleting a superset should also remove its sets)
 	activeSuperset: null,
 	actions: {
 
@@ -15,7 +16,14 @@ export default Ember.Controller.extend({
 				date: moment().format("MMMM DD")
 			});
 			newWorkout.save().then(function(){
-				$(".add-exercise-input").last().focus();
+				$('html, body').animate({
+				    scrollTop: ($(document).height())
+				}, {
+					duration: 200,
+					complete: function(){
+						$(".add-exercise-input").last().focus();
+					}
+				});
 			});
 		},
 
@@ -56,7 +64,7 @@ export default Ember.Controller.extend({
 			this.set('activeSuperset', supersetID);
 			$("#reps").focus();
 		},
-		
+
 		saveSet: function(superset, reps, weight) {
 			let newSet = this.get("store").createRecord('set', {
 				reps: reps,
