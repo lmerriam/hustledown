@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+	// TODO: authentication and load in only user's records
 	model() {
 		return {
 			workouts: this.store.findAll('workout'),
