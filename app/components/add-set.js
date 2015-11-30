@@ -10,7 +10,7 @@ export default Ember.Component.extend({
 				var count = this.get('activeSuperset.exercise.supersets.length');
 				return {
 					reps: this.get('activeSuperset.exercise.supersets').objectAt(count-2).get('sets.lastObject.reps'),
-					weight: this.get('activeSuperset.exercise.supersets').objectAt(count-2).get('sets.lastObject.reps')
+					weight: this.get('activeSuperset.exercise.supersets').objectAt(count-2).get('sets.lastObject.weight')
 				};
 			}
 			else {
